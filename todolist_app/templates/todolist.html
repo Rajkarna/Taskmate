@@ -13,6 +13,8 @@
 
 
     </br>
+
+    {% comment %} mesages section   {% endcomment %}
        {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -23,12 +25,23 @@
             {% endfor %}
         {% endif %}
 
+    {% comment %} mesages section   {% endcomment %}
+
+
+
+
+
+
+        {% comment %} form section  add task {% endcomment %}
+
         <form method="POST" class="row">
             {% csrf_token %}
               <label class="col-sm-6"></label>
               <input type="text" class="form-control col-lg-6" name="task" placeholder="New Task ?">
               <button type="submit" class="btn btn-primary col-lg-2">Add Task</button>
           </form>
+
+        {% comment %} form section  add task {% endcomment %}
 
 
     </br>
@@ -42,6 +55,8 @@
               </tr>
             </thead>
             <tbody>
+
+              {% comment %} table data section  {% endcomment %}
                 {% if all_tasks %}
                     {% for obj in all_tasks %}
                     {% if obj.done %}
@@ -62,8 +77,15 @@
                     {% endif %}
                     {% endfor %} 
                 {% endif %}
+
+            {% comment %} table data section  {% endcomment %}
             </tbody>
           </table>
+
+
+
+
+          {% comment %} pagination section {% endcomment %}
 
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end">
@@ -87,7 +109,11 @@
               </li>
             </ul>
           </nav>
+
+        {% comment %} pagination section {% endcomment %}
         
+
+
     </div>
 {% endblock %}
 
